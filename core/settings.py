@@ -161,3 +161,21 @@ SITE_ID = 1
 
 #Configuração necessária para a biblioteca 'django-role-permissions'.
 ROLEPERMISSIONS_MODULE = "core.roles"
+
+#Configuração necessária para a biblioteca djangorestframework-simplejwt
+from datetime import timedelta
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+    
+}
+
+SIMPLE_JWT = {
+    'USER_ID_FIELD': 'user_id',
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=15),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+}
