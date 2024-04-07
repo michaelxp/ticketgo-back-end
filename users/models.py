@@ -25,3 +25,6 @@ class CustomUser(AbstractUser):
     gender = models.CharField(max_length=1, choices=[('M', 'Homem'), ('F', 'Mulher'), ('O', 'Outro')], blank=True)
     privileged = models.BooleanField(default=False)  
     address = models.ForeignKey(Address, related_name='Endereço', on_delete=models.SET_NULL, null=True, blank=True)
+
+    def get_user_id(self):
+        return self.user_id
