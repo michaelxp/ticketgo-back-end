@@ -10,6 +10,7 @@ class CustomUserViewSet(generics.CreateAPIView):
     serializer_class = serializers.CustomUserSerializer
     
     def create(self, request, *args, **kwargs):
+
         serializer = self.get_serializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -18,6 +19,7 @@ class CustomUserViewSet(generics.CreateAPIView):
 
 
 class LoginViewSet(APIView):
+    
     serializer_class = serializers.LoginSerializer
 
     def post(self, request, *args, **kwargs):
